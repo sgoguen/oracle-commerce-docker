@@ -7,8 +7,8 @@ RUN if [ ! -d "/srv/jboss/config" ]; then mkdir -p /srv/jboss/config; fi
 RUN mkdir -p /var/log/jboss
 
 # install Oracle JDK: you need to download it manually in the installers directory
-ADD ./installers/jdk-8u144-linux-x64.tar /opt/
-ENV JAVA_HOME=/opt/jdk1.8.0_144
+ADD ./installers/jdk-8u181-linux-x64.tar /opt/
+ENV JAVA_HOME=/opt/jdk1.8.0_181
 ENV PATH=${JAVA_HOME}/bin:${PATH}
 
 # install jboss: you need to download JBOSS manually in the installers directory
