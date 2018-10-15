@@ -4,6 +4,8 @@ RUN if [ ! -d "/opt" ]; then mkdir /opt; fi
 RUN if [ ! -d "/tmp" ]; then mkdir /tmp; fi
 RUN if [ ! -d "/srv/jboss/config" ]; then mkdir -p /srv/jboss/config; fi
 
+ENV downloadSource=https://alliedwebprod1.blob.core.windows.net/archives
+
 # create jboss folders
 RUN mkdir -p /var/log/jboss
 
