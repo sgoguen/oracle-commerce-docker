@@ -1,0 +1,1 @@
+docker run -p 127.0.0.1:9990:9990 atg-11.3 sh /opt/scripts/jboss.sh start
