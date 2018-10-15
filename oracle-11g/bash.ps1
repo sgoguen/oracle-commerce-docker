@@ -1,0 +1,1 @@
+docker run --rm -it -v $PWD/downloads:/downloads -v $PWD/install:/install oraclelinux bash

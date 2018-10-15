@@ -1,0 +1,1 @@
+docker run --rm -p 127.0.0.1:9990:9990 -it jboss-eap-7.0 bash

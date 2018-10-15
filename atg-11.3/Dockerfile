@@ -1,7 +1,17 @@
 FROM jboss-eap-7.0
+
+#######################################
 # environment variable for local location
 ENV LOCAL_SCRIPTS scripts
 ENV LOCAL_TOOLS tools
+
+
+#######################################
+# Install Shared Tools
+
+# Install tmux
+RUN yum install tmux -y
+
 
 # environment variables for installables
 ENV BASE_TMP_INSTALL /tmp
@@ -22,6 +32,7 @@ RUN chmod -R 755 $SCRIPT_DIR
 #######################################
 # copy ATG
 ADD $LOCAL_TOOLS/V861209-01.zip $BASE_TMP_PACKAGE_INSTALL/V861209-01.zip
+ADD scripts/full-install.rsp /tmp/atg/full-install.rsp
 
 # unzip oracle zip file for ATG to OCPlatform11.3.bin
 RUN unzip $BASE_TMP_PACKAGE_INSTALL/V861209-01.zip -d $BASE_TMP_INSTALL
@@ -37,6 +48,11 @@ ADD $LOCAL_TOOLS/ojdbc6.jar /appl/jboss-eap-5.1.2/jboss-as/lib/ojdbc6.jar
 # DONE
 
 ENV AUTHORIZED_KEYS **None**
+
+RUN /tmp/OCPlatform11.3.bin -f /tmp/atg/full-install.rsp -i silent
+
+# Add manager user
+RUN ${JBOSS_HOME}/bin/add-user.sh --silent=true manager manager ManagementRealm
 
 EXPOSE 22
 #CMD ["/run.sh"]

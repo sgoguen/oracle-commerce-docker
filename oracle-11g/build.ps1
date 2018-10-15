@@ -1,0 +1,1 @@
+docker build -t oracle11g-test .
