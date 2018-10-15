@@ -3,8 +3,8 @@ FROM jboss-eap-7.0
 #######################################
 # environment variable for local location
 ENV LOCAL_SCRIPTS scripts
-ENV LOCAL_TOOLS tools
-
+ENV LOCAL_TOOLS=https://alliedwebprod1.blob.core.windows.net/archives/atg-11.3
+# ENV LOCAL_TOOLS tools
 
 #######################################
 # Install Shared Tools
